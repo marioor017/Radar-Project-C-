@@ -11,14 +11,15 @@
 #include <iostream>
 using namespace std;
 using namespace mraa;
-HCSR04::HCSR04(int triggerPin, int echoPin) : CapteurTrigEcho(triggerPin,echoPin) {
+HCSR04::HCSR04(int triggerPin, int echoPin) : CapteurTrigEcho(triggerPin,echoPin) { //Ce constructeur utilise le constructeur de la classe mère
+	// (CapteurTrigEcho), initialise la distance et temps de l'impulsion à 0
 	this->distance = 0;
 	this->pulseTime = 0;
 
 	// TODO Auto-generated constructor stub
 }
 
-HCSR04::~HCSR04() {
+HCSR04::~HCSR04() { //Destructeur de la classe
 	// TODO Auto-generated destructor stub
 }
 int HCSR04::getDdistance(){ // algo pour calculer la distance du capteur
