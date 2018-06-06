@@ -8,7 +8,8 @@
 using namespace std;
 using namespace mraa;
 
-Loop::Loop() : Setup(){
+Loop::Loop() : Setup(){ //Ce constructeur fait appèlle au constructeur de Setup et initialise les variables
+	//qui vont être utilise dans le cycle for
 	// TODO Auto-generated constructor stub
 	this->period = 20;
 	this->duty_cycle = 0;
@@ -17,11 +18,11 @@ Loop::Loop() : Setup(){
 	this->i = 0;
 }
 
-Loop::~Loop() {
+Loop::~Loop() { //Destructeur de la classe
 	// TODO Auto-generated destructor stub
 }
 
-void Loop::startDetection(){
+void Loop::startDetection(){ //Cette méthode commence le for infinie du programme.
 	for(;;){
 		this->sendData();
 	 	usleep(200000);
@@ -31,7 +32,7 @@ void Loop::startDetection(){
 	}
 }
 
-void Loop::sendData(){
+void Loop::sendData(){ //Cette méthode ce charge d'envoyer les données atravers la communication serial
 	ostringstream distString;
 	ostringstream iString;
  	this->dist = this->Ultrasonic->getDdistance();
@@ -43,7 +44,7 @@ void Loop::sendData(){
  	this->ComFTDI->serialWrite(".");
 }
 
-void Loop::selectionMode(){
+void Loop::selectionMode(){ // Cette méthode c'est pour changer du mode automatique au mode manuel.
 	if (this->PushButton->digitalRead() == 0){
 		if (this->direction == true){
 			this->i++;
@@ -60,12 +61,12 @@ void Loop::selectionMode(){
 		this->i = (int)this->Pot->analogRead()*180/1023;
 	 }
 }
-void Loop::moveServo(){
+void Loop::moveServo(){// Cette methode calcule et mets le cycle de travaille de la PWM du servo
  	this->duty_cycle = 0.2 + 0.35/180*this->i;
  	this->Servo->setDutyCycle(this->period,this->duty_cycle);
 }
 
-void Loop::updateListeIntrus(){
+void Loop::updateListeIntrus(){ //Cette méthode garde dans une liste la position où le capteur a détecter quelque chose
 	if (this->dist < 10){
 		this->positionIntrus.push_back(i);
 		cout<< "Position Intrus Sauvegardee"<<endl;
