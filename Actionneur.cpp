@@ -7,7 +7,7 @@
 
 #include "Actionneur.h"
 
-Actionneur::Actionneur(int port) {  //C'est un constructeur de la classe actionneur, qui garde dedans la classe le port indiquer.
+Actionneur::Actionneur(int port) {  //C'est un constructeur de la classe actionneur, qui le port indiquer dans l'attribut de la classe.
 	// TODO Auto-generated constructor stub
 	this->portConnecte = port;
 
