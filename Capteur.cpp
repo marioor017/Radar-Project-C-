@@ -7,12 +7,12 @@
 
 #include "Capteur.h"
 
-Capteur::Capteur(int port) {
+Capteur::Capteur(int port) { //Constructeur de la classe capteur qui garde le port dans l'attribut de la classe.
 	// TODO Auto-generated constructor stub
 	this->portConnecte = port;
 }
 
-Capteur::~Capteur() {
+Capteur::~Capteur() { //Destructeur de la classe
 	// TODO Auto-generated destructor stub
 }
 
