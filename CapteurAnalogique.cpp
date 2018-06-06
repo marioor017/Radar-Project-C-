@@ -8,7 +8,7 @@
 #include "CapteurAnalogique.h"
 
 CapteurAnalogique::CapteurAnalogique(int port) : Capteur(port){ //Ce constructeur utilise le constructeur de la classe mère et 
-	//initialise un port de type analogique au numéro indiqué
+	//initialise un port de type analogique au port indiqué
 	// TODO Auto-generated constructor stub
 	this->Analog = new Aio(port);
 
