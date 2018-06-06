@@ -7,16 +7,17 @@
 
 #include "CapteurAnalogique.h"
 
-CapteurAnalogique::CapteurAnalogique(int port) : Capteur(port){
+CapteurAnalogique::CapteurAnalogique(int port) : Capteur(port){ //Ce constructeur utilise le constructeur de la classe mère et 
+	//initialise un port de type analogique au numéro indiqué
 	// TODO Auto-generated constructor stub
 	this->Analog = new Aio(port);
 
 }
 
-CapteurAnalogique::~CapteurAnalogique() {
+CapteurAnalogique::~CapteurAnalogique() { //Destructeur de la classe
 	// TODO Auto-generated destructor stub
 }
 
-int CapteurAnalogique::analogRead(){
+int CapteurAnalogique::analogRead(){ //Cette méthode realise une lecture du port analogique de l'objet
 	return this->Analog->read();
 }
