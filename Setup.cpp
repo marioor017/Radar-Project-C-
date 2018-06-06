@@ -10,7 +10,7 @@ using namespace std;
 using namespace mraa;
 
 
-Setup::Setup() {
+Setup::Setup() { //Ce constructeur initialise tous les port dont notre système va avoir besoin 
 	// TODO Auto-generated constructor stub
 	this->ComFTDI = new CommunicationSerial(1,115200);
 	this->PushButton = new CapteurDigital(7);
@@ -20,7 +20,7 @@ Setup::Setup() {
 	this->Servo->enablePWM();
 }
 
-Setup::~Setup() {
+Setup::~Setup() { //Destructeur de la classe
 	// TODO Auto-generated destructor stub
 }
 
